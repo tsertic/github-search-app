@@ -10,4 +10,8 @@ const Alert = ({ alert }) => {
   );
 };
 
+Alert.propTypes = {
+  alert: PropTypes.object
+};
+
 export default Alert;
