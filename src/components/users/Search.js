@@ -1,7 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import useInput from './../../hooks/useInput';
-const Search = ({ showClear, searchUsers, clearUsers, setAlert }) => {
+import GithubContext from './../../context/github/githubContext';
+const Search = () => {
+  const githubContext = useContext(GithubContext);
+  const { searchUsers, showClear, clearUsers, setAlert } = githubContext;
   const [text, handleTextChange, resetText] = useInput('');
 
   const handleSubmit = e => {
@@ -38,13 +40,6 @@ const Search = ({ showClear, searchUsers, clearUsers, setAlert }) => {
       )}
     </div>
   );
-};
-
-Search.propTypes = {
-  searchUsers: PropTypes.func.isRequired,
-  clearUsers: PropTypes.func.isRequired,
-  setAlert: PropTypes.func.isRequired,
-  showClear: PropTypes.bool.isRequired
 };
 
 export default Search;
